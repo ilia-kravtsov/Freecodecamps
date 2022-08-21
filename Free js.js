@@ -1,2 +1,4 @@
-var Liga;
-Liga = 11;
+var a;
+a = 11;
+let b;
+b = a;
