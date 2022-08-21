@@ -1,1 +1,2 @@
-var Ligalaizz;
+var Liga;
+Liga = 11;
