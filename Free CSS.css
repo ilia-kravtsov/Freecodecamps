@@ -45,7 +45,7 @@
   }
 
   .pink-text {
-    color: pink;
+    color: pink !important;
   }
 
   #orange-text {
