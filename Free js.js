@@ -1,3 +1,16 @@
+// this is an in-line comment
+/* this is a 
+multi-line comment */
+
+
+
+
+
+
+
+
+
+
 var a;
 a = 11;
 let b;
