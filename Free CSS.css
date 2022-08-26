@@ -37,3 +37,9 @@
     margin-top: 10px;
     margin-bottom: 15px;
   }
+
+  body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+  }
