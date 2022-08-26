@@ -27,6 +27,16 @@ a = a + 1;
 b = b + 5;
 c = c + " String!";
 
+// Variable declarations
+var studlyCapVar;
+var properCamelCase;
+var titleCaseOver;
+
+// Variable assignments
+studlyCapVar = 10;
+properCamelCase = "A String";
+titleCaseOver = 9000;
+
 var a;
 a = 11;
 let b;
