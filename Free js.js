@@ -14,6 +14,9 @@ b = a;
 
 var a = 9;
 
+var myFirstName = "ilia";
+var myLastName = "kravtsov";
+
 var a;
 a = 11;
 let b;
