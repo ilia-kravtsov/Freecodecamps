@@ -209,3 +209,6 @@ const myArray = ["liga", 11];
 
 // Only change code below this line
 const myArray = [["liga", 11], ["laizz", 7]];
+
+const myArray = [50, 60, 70];
+const myData = myArray[0];
