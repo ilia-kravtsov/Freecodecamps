@@ -149,4 +149,4 @@ myStr += "This is the second sentence.";
 
 // Only change code below this line
 const myName = "ilia";
-const myStr = "My name is " + myName + "and i am well!";
+const myStr = "My name is " + myName + "and I am well!";
