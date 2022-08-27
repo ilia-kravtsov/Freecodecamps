@@ -203,3 +203,6 @@ const myAdverb = "quickly";
 // Only change code below this line
 const wordBlanks = "Look! There is a " + myAdjective + " black " + myNoun + " keep " + myVerb + " fast and " + myAdverb; // Change this line
 // Only change code above this line
+
+// Only change code below this line
+const myArray = ["liga", 11];
