@@ -206,3 +206,6 @@ const wordBlanks = "Look! There is a " + myAdjective + " black " + myNoun + " ke
 
 // Only change code below this line
 const myArray = ["liga", 11];
+
+// Only change code below this line
+const myArray = [["liga", 11], ["laizz", 7]];
