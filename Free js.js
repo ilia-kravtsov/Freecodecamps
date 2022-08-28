@@ -265,3 +265,9 @@ function functionWithArgs(a, b) {
 }
 
 functionWithArgs(1,2);
+
+function timesFive(a) {
+  return a * 5;
+}
+
+const answer = (timesFive(5));
