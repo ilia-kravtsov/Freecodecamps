@@ -342,3 +342,13 @@ function processArg(num) {
 
 // Only change code below this line
 processed = processArg(7);
+
+// Setup
+function testEqual(val) {
+  if (val == 12) { // Change this line
+    return "Equal";
+  }
+  return "Not Equal";
+}
+
+testEqual(10);
