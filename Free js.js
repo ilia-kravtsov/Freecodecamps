@@ -741,11 +741,8 @@ const myDog = {
 // Only change code below this line
 myDog.name = "Happy Coder";
 
-/* 
-                                              Selecting from Many Options with Switch Statements
 
-                                              
-*/
+// ________________________________________________Selecting from Many Options with Switch Statements
 
 function caseInSwitch(val) {
   let answer = "";
@@ -764,8 +761,269 @@ function caseInSwitch(val) {
       answer = "delta";
       break;
   }
+  // Only change code above this line
+  return answer;
+}
+
+// _______________________________________________ Adding a Default Option in Switch Statements
+
+function switchOfStuff(val) {
+  let answer = "";
+  // Only change code below this line
+  switch (val) {
+    case 'a':
+      answer = 'apple';
+      break;
+    case 'b':
+      answer = 'bird';
+      break;
+    case 'c':
+      answer = 'cat';
+      break;
+    default:
+      answer = 'stuff';
+      break;
+  }
 
 
   // Only change code above this line
   return answer;
 }
+
+switchOfStuff(1);
+
+// _________________________________________________ Multiple Identical Options in Switch Statements
+
+function sequentialSizes(val) {
+  let answer = "";
+  // Only change code below this line
+  switch (val) {
+    case 1:
+    case 2:
+    case 3:
+      answer = 'Low';
+      break;  
+    case 4:
+    case 5:
+    case 6:
+      answer = 'Mid';
+      break;  
+    case 7:
+    case 8:
+    case 9:
+      answer = 'High';
+      break;    
+  }
+
+
+  // Only change code above this line
+  return answer;
+}
+
+sequentialSizes(1);
+
+// ___________________________________________________ Replacing If Else Chains with Switch
+
+function chainToSwitch(val) {
+  let answer = "";
+  // Only change code below this line
+  
+  switch (val) {
+    case 'bob':
+    answer = "Marley";
+    break;
+    case 42:
+    answer = 'The Answer'
+    break;
+    case 1: 
+    answer = 'There is no #1';
+    break;
+    case 99:
+    answer = 'Missed me by this much!';
+    break;
+    case 7:
+    answer = 'Ate Nine'
+    break;
+  }
+  // Only change code above this line
+  return answer;
+}
+
+chainToSwitch(7);
+
+// ________________________________________________________ Returning Boolean Values from Functions
+
+/* 
+You may recall from Comparison with the Equality Operator that all comparison operators return a boolean true or false value.
+
+Sometimes people use an if/else statement to do a comparison, like this:
+
+function isEqual(a, b) {
+  if (a === b) {
+    return true;
+  } else {
+    return false;
+  }
+}
+But there's a better way to do this. Since === returns true or false, we can return the result of the comparison:
+
+function isEqual(a, b) {
+  return a === b;
+}
+*/
+
+const isLess = (a, b) => a < b 
+ 
+isLess(10, 15);
+
+// __________________________________________________________ Return Early Pattern for Functions
+
+/* 
+When a return statement is reached, the execution of the current function stops and control returns to the calling location.
+
+Example
+
+function myFun() {
+  console.log("Hello");
+  return "World";
+  console.log("byebye")
+}
+myFun();
+The above will display the string Hello in the console, and return the string World. The string byebye will never display in the console, because the function exits at the return statement.
+
+Modify the function abTest so that if a or b are less than 0 the function will immediately exit with a value of undefined.
+*/
+
+const abTest = (a, b) => (a < 0 || b < 0) ? undefined :
+Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+abTest(2,2);
+
+// ____________________________________________________________ Counting Cards
+
+/* 
+Counting Cards
+In the casino game Blackjack, a player can determine whether they have an advantage on the next hand over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called Card Counting.
+
+Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.
+
+Count Change	Cards
++1	2, 3, 4, 5, 6
+0	7, 8, 9
+-1	10, 'J', 'Q', 'K', 'A'
+You will write a card counting function. It will receive a card parameter, which can be a number or a string, and increment or decrement the global count variable according to the card's value (see table). The function will then return a string with the current count and the string Bet if the count is positive, or Hold if the count is zero or negative. The current count and the player's decision (Bet or Hold) should be separated by a single space.
+
+Example Outputs: -3 Hold or 5 Bet
+
+Hint
+Do NOT reset count to 0 when value is 7, 8, or 9.
+Do NOT return an array.
+Do NOT include quotes (single or double) in the output.
+*/
+
+var count = 0;
+
+function cc(card) {
+  switch(card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count++;
+      break;
+    case 10:
+    case "J":
+    case "Q":
+    case "K":
+    case "A":
+      count--;
+      break;
+  }
+
+  var holdbet = 'Hold'
+  if (count > 0) {
+    holdbet = 'Bet'
+  }
+
+  return count + " " + holdbet;
+
+}
+
+
+cc(2); cc(3); cc(7); cc('K'); cc('A');
+console.log(cc(4))
+
+// ____________________________________________ Build JavaScript Objects
+
+/* 
+You may have heard the term object before.
+
+Objects are similar to arrays, except that instead of using indexes to access and modify their data, you access the data in objects through what are called properties.
+
+Objects are useful for storing data in a structured way, and can represent real world objects, like a cat.
+
+Here's a sample cat object:
+
+const cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
+In this example, all the properties are stored as strings, such as name, legs, and tails. However, you can also use numbers as properties. You can even omit the quotes for single-word string properties, as follows:
+
+const anotherObject = {
+  make: "Ford",
+  5: "five",
+  "model": "focus"
+};
+However, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
+
+Make an object that represents a dog called myDog which contains the properties name (a string), legs, tails and friends.
+
+You can set these object properties to whatever values you want, as long as name is a string, legs and tails are numbers, and friends is an array.
+*/
+
+const myDog = {
+  // Only change code below this line
+name: 'sharik',
+legs: 4,
+tails: 1,
+friends: []
+  // Only change code above this line
+};
+
+// ____________________________________________________ Accessing Object Properties with Dot Notation
+
+/* 
+There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.
+
+Dot notation is what you use when you know the name of the property you're trying to access ahead of time.
+
+Here is a sample of using dot notation (.) to read an object's property:
+
+const myObj = {
+  prop1: "val1",
+  prop2: "val2"
+};
+
+const prop1val = myObj.prop1;
+const prop2val = myObj.prop2;
+prop1val would have a value of the string val1, and prop2val would have a value of the string val2.
+
+Read in the property values of testObj using dot notation. Set the variable hatValue equal to the object's property hat and set the variable shirtValue equal to the object's property shirt.
+*/
+
+// Setup
+const testObj = {
+  "hat": "ballcap",
+  "shirt": "jersey",
+  "shoes": "cleats"
+};
+
+// Only change code below this line
+const hatValue = testObj.hat;      // Change this line
+const shirtValue = testObj.shirt;    // Change this line
+
+// ________________________________________________ Accessing Object Properties with Bracket Notation
+
