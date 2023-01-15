@@ -1027,3 +1027,186 @@ const shirtValue = testObj.shirt;    // Change this line
 
 // ________________________________________________ Accessing Object Properties with Bracket Notation
 
+/* 
+Another use of bracket notation on objects is to access a property which is stored as the value of a variable. This can be very useful for iterating through an object's properties or when accessing a lookup table.
+
+Here is an example of using a variable to access a property:
+
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+
+const myDog = "Hunter";
+const myBreed = dogs[myDog];
+console.log(myBreed);
+The string Doberman would be displayed in the console.
+
+Note that we do not use quotes around the variable name when using it to access the property because we are using the value of the variable, not the name.
+
+Set the playerNumber variable to 16. Then, use the variable to look up the player's name and assign it to player.
+
+*/
+
+// Setup
+const testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
+
+// Only change code below this line
+const playerNumber = 16;  // Change this line
+const player = testObj[playerNumber];   // Change this line
+
+// _______________________________________________________________ Updating Object Properties
+
+/* 
+After you've created a JavaScript object, you can update its properties at any time just like you would update any other variable. You can use either dot or bracket notation to update.
+
+For example, let's look at ourDog:
+
+const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+Since he's a particularly happy dog, let's change his name to the string Happy Camper. Here's how we update his object's name property: ourDog.name = "Happy Camper"; or ourDog["name"] = "Happy Camper"; Now when we evaluate ourDog.name, instead of getting Camper, we'll get his new name, Happy Camper.
+
+Update the myDog object's name property. Let's change her name from Coder to Happy Coder. You can use either dot or bracket notation.
+*/
+
+// Setup
+const myDog = {
+  "name": "Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+// Only change code below this line
+myDog.name = 'Happy Coder'
+
+// ____________________________________________________________ Add New Properties to a JavaScript Object
+/*
+Add New Properties to a JavaScript Object
+You can add new properties to existing JavaScript objects the same way you would modify them.
+
+Here's how we would add a bark property to ourDog:
+
+ourDog.bark = "bow-wow";
+or
+
+ourDog["bark"] = "bow-wow";
+Now when we evaluate ourDog.bark, we'll get his bark, bow-wow.
+
+Example:
+
+const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+
+ourDog.bark = "bow-wow";
+Add a bark property to myDog and set it to a dog sound, such as "woof". You may use either dot or bracket notation. */
+
+const myDog = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+myDog.bark = 'woof'
+
+// _______________________________________________________ Delete Properties from a JavaScript Object
+
+/* 
+We can also delete properties from objects like this:
+
+delete ourDog.bark;
+Example:
+
+const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"],
+  "bark": "bow-wow"
+};
+
+delete ourDog.bark;
+After the last line shown above, ourDog looks like:
+
+{
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+}
+Delete the tails property from myDog. You may use either dot or bracket notation.
+*/
+
+// Setup
+const myDog = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"],
+  "bark": "woof"
+};
+
+// Only change code below this line
+delete myDog.tails
+
+// ______________________________________________________ Using Objects for Lookups
+
+/* 
+Using Objects for Lookups
+Objects can be thought of as a key/value storage, like a dictionary. If you have tabular data, you can use an object to lookup values rather than a switch statement or an if/else chain. This is most useful when you know that your input data is limited to a certain range.
+
+Here is an example of an article object:
+
+const article = {
+  "title": "How to create objects in JavaScript",
+  "link": "https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/",
+  "author": "Kaashan Hussain",
+  "language": "JavaScript",
+  "tags": "TECHNOLOGY",
+  "createdAt": "NOVEMBER 28, 2018"
+};
+
+const articleAuthor = article["author"];
+const articleLink = article["link"];
+
+const value = "title";
+const valueLookup = article[value];
+articleAuthor is the string Kaashan Hussain, articleLink is the string https://www.freecodecamp.org/news/a-complete-guide-to-creating-objects-in-javascript-b0e2450655e8/, and valueLookup is the string How to create objects in JavaScript.
+
+Convert the switch statement into an object called lookup. Use it to look up val and assign the associated string to the result variable.
+*/
+
+// Setup
+function phoneticLookup(val) {
+  let result = "";
+
+  // Only change code below this line
+  var lookup = {
+    "alpha": "Adams",
+    "bravo": "Boston",
+    "charlie": "Chicago",
+    "delta": "Denver",
+    "echo": "Easy",
+    "foxtrot": "Frank"
+  };
+  result = lookup[val];
+
+  // Only change code above this line
+  return result;
+}
+
+phoneticLookup("charlie");
