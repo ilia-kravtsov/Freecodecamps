@@ -2376,3 +2376,98 @@ function removeFirstTwo(list) {
   return shorterList;
 }
 const sourceWithoutFirstTwo = removeFirstTwo(source);
+
+
+// _________________________________________ Use Destructuring Assignment to Pass an Object as a Function's Parameters
+
+/* 
+In some cases, you can destructure the object in a function argument itself.
+
+Consider the code below:
+
+const profileUpdate = (profileData) => {
+  const { name, age, nationality, location } = profileData;
+
+}
+This effectively destructures the object sent into the function. This can also be done in-place:
+
+const profileUpdate = ({ name, age, nationality, location }) => {
+
+}
+When profileData is passed to the above function, the values are destructured from the function parameter for use within the function.
+
+Use destructuring assignment within the argument to the function half to send only max and min inside the function.
+*/
+
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+
+// Only change code below this line
+const half = ({max, min}) => (max + min) / 2.0; 
+// Only change code above this line
+
+// __________________________________________ Create Strings using Template Literals
+
+/*
+A new feature of ES6 is the template literal. This is a special type of string that makes creating complex strings easier.
+
+Template literals allow you to create multi-line strings and to use string interpolation features to create strings.
+
+Consider the code below:
+
+const person = {
+  name: "Zodiac Hasbro",
+  age: 56
+};
+
+const greeting = `Hello, my name is ${person.name}!
+I am ${person.age} years old.`;
+
+console.log(greeting);
+The console will display the strings Hello, my name is Zodiac Hasbro! and I am 56 years old..
+
+A lot of things happened there. Firstly, the example uses backticks (`), not quotes (' or "), to wrap the string. Secondly, notice that the string is multi-line, both in the code and the output. This saves inserting \n within strings. The ${variable} syntax used above is a placeholder. Basically, you won't have to use concatenation with the + operator anymore. To add variables to strings, you just drop the variable in a template string and wrap it with ${ and }. Similarly, you can include other expressions in your string literal, for example ${a + b}. This new way of creating strings gives you more flexibility to create robust strings.
+
+Use template literal syntax with backticks to create an array of list element (li) strings. Each list element's text should be one of the array elements from the failure property on the result object and have a class attribute with the value text-warning. The makeList function should return the array of list item strings.
+
+Use an iterator method (any kind of loop) to get the desired output (shown below).
+
+[
+  '<li class="text-warning">no-var</li>',
+  '<li class="text-warning">var-on-top</li>',
+  '<li class="text-warning">linebreak</li>'
+]
+*/
+
+
+// ___________________________________ Write Concise Object Literal Declarations Using Object Property Shorthand
+/* 
+ES6 adds some nice support for easily defining object literals.
+
+Consider the following code:
+
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:
+
+const getMousePosition = (x, y) => ({ x, y });
+Use object property shorthand with object literals to create and return an object with name, age and gender properties.
+*/
+
+const createPerson = (name, age, gender) => {
+  // Only change code below this line
+  return {
+    name,
+    age,
+    gender
+  };
+  // Only change code above this line
+};
