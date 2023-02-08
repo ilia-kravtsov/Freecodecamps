@@ -2471,3 +2471,1102 @@ const createPerson = (name, age, gender) => {
   };
   // Only change code above this line
 };
+
+// _________________________________________________ Write Concise Declarative Functions with ES6
+
+/* 
+When defining functions within objects in ES5, we have to use the keyword function as follows:
+
+const person = {
+  name: "Taylor",
+  sayHello: function() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+With ES6, you can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
+
+const person = {
+  name: "Taylor",
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+Refactor the function setGear inside the object bicycle to use the shorthand syntax described above.
+*/
+
+// Only change code below this line
+const bicycle = {
+  gear: 2,
+  setGear (newGear) {
+    this.gear = newGear;
+  }
+};
+// Only change code above this line
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+// __________________________________________________ Use class Syntax to Define a Constructor Function
+
+/*
+ES6 provides a new syntax to create objects, using the class keyword.
+
+In ES5, an object can be created by defining a constructor function and using the new keyword to instantiate the object.
+
+In ES6, a class declaration has a constructor method that is invoked with the new keyword. If the constructor method is not explicitly defined, then it is implicitly defined with no arguments.
+
+// Explicit constructor
+class SpaceShuttle {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+  takeOff() {
+    console.log("To " + this.targetPlanet + "!");
+  }
+}
+
+// Implicit constructor 
+class Rocket {
+  launch() {
+    console.log("To the moon!");
+  }
+}
+
+const zeus = new SpaceShuttle('Jupiter');
+// prints To Jupiter! in console
+zeus.takeOff();
+
+const atlas = new Rocket();
+// prints To the moon! in console
+atlas.launch();
+It should be noted that the class keyword declares a new function, to which a constructor is added. This constructor is invoked when new is called to create a new object.
+
+Note: UpperCamelCase should be used by convention for ES6 class names, as in SpaceShuttle used above.
+
+The constructor method is a special method for creating and initializing an object created with a class. You will learn more about it in the Object Oriented Programming section of the JavaScript Algorithms And Data Structures Certification.
+
+Use the class keyword and write a constructor to create the Vegetable class.
+
+The Vegetable class allows you to create a vegetable object with a property name that gets passed to the constructor.
+*/
+// Only change code below this line
+class Vegetable {
+  constructor(name) {
+    this.name = name
+  }
+}
+// Only change code above this line
+
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // Should display 'carrot'
+// __________________________________________________ Use getters and setters to Control Access to an Object
+
+/*
+You can obtain values from an object and set the value of a property within an object.
+
+These are classically called getters and setters.
+
+Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+
+Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
+*/
+// Only change code below this line
+class Thermostat {
+  constructor(tempF) {
+    this.tempF = tempF;
+  }
+  get temperature() {
+    return 5/9 * (this.tempF - 32);
+  } 
+  set temperature(tempC) {
+    this.tempF = tempC * 9.0 / 5 + 32;
+  }
+}
+// Only change code above this line
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+let temp = thermos.temperature; // 24.44 in Celsius
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
+// __________________________________________________ Create a Module Script
+
+/*
+JavaScript started with a small role to play on an otherwise mostly HTML web. Today, it’s huge, and some websites are built almost entirely with JavaScript. In order to make JavaScript more modular, clean, and maintainable; ES6 introduced a way to easily share code among JavaScript files. This involves exporting parts of a file for use in one or more other files, and importing the parts you need, where you need them. In order to take advantage of this functionality, you need to create a script in your HTML document with a type of module. Here’s an example:
+
+<script type="module" src="filename.js"></script>
+A script that uses this module type can now use the import and export features you will learn about in the upcoming challenges.
+
+Add a script to the HTML document of type module and give it the source file of index.js
+*/
+<html>
+  <body>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
+// __________________________________________________ Use export to Share a Code Block
+
+/*
+Imagine a file called math_functions.js that contains several functions related to mathematical operations. One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this function in several different JavaScript files. In order to share it with these other files, you first need to export it.
+
+export const add = (x, y) => {
+  return x + y;
+}
+The above is a common way to export a single function, but you can achieve the same thing like this:
+
+const add = (x, y) => {
+  return x + y;
+}
+
+export { add };
+When you export a variable or function, you can import it in another file and use it without having to rewrite the code. You can export multiple things by repeating the first example for each thing you want to export, or by placing them all in the export statement of the second example, like this:
+
+export { add, subtract };
+There are two string-related functions in the editor. Export both of them using the method of your choice.
+*/
+const uppercaseString = (string) => {
+  return string.toUpperCase();
+}
+
+const lowercaseString = (string) => {
+  return string.toLowerCase()
+}
+
+export { lowercaseString, uppercaseString };
+// __________________________________________________ Reuse JavaScript Code Using import
+
+/*
+import allows you to choose which parts of a file or module to load. In the previous lesson, the examples exported add from the math_functions.js file. Here's how you can import it to use in another file:
+
+import { add } from './math_functions.js';
+Here, import will find add in math_functions.js, import just that function for you to use, and ignore the rest. The ./ tells the import to look for the math_functions.js file in the same folder as the current file. The relative file path (./) and file extension (.js) are required when using import in this way.
+
+You can import more than one item from the file by adding them in the import statement like this:
+
+import { add, subtract } from './math_functions.js';
+Add the appropriate import statement that will allow the current file to use the uppercaseString and lowercaseString functions you exported in the previous lesson. These functions are in a file called string_functions.js, which is in the same directory as the current file.
+*/
+import { uppercaseString , lowercaseString  } from './string_functions.js';  
+// Only change code above this line
+
+uppercaseString("hello");
+lowercaseString("WORLD!");
+// __________________________________________________ Use * to Import Everything from a File
+
+/*
+Suppose you have a file and you wish to import all of its contents into the current file. This can be done with the import * as syntax. Here's an example where the contents of a file named math_functions.js are imported into a file in the same directory:
+
+import * as myMathModule from "./math_functions.js";
+The above import statement will create an object called myMathModule. This is just a variable name, you can name it anything. The object will contain all of the exports from math_functions.js in it, so you can access the functions like you would any other object property. Here's how you can use the add and subtract functions that were imported:
+
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);
+The code in this file requires the contents of the file: string_functions.js, that is in the same directory as the current file. Use the import * as syntax to import everything from the file into an object called stringFunctions.
+*/
+import * as stringFunctions from "./string_functions.js";
+// Only change code above this line
+
+stringFunctions.uppercaseString("hello");
+stringFunctions.lowercaseString("WORLD!");
+// __________________________________________________ Create an Export Fallback with export default
+
+/*
+In the export lesson, you learned about the syntax referred to as a named export. This allowed you to make multiple functions and variables available for use in other files.
+
+There is another export syntax you need to know, known as export default. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+
+Below are examples using export default:
+
+export default function add(x, y) {
+  return x + y;
+}
+
+export default function(x, y) {
+  return x + y;
+}
+The first is a named function, and the second is an anonymous function.
+
+Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use export default with var, let, or const
+
+The following function should be the fallback value for the module. Please add the necessary code to do so.
+*/
+export default function subtract(x, y) {
+  return x - y;
+}
+// __________________________________________________ Import a Default Export
+
+/*
+In the last challenge, you learned about export default and its uses. To import a default export, you need to use a different import syntax. In the following example, add is the default export of the math_functions.js file. Here is how to import it:
+
+import add from "./math_functions.js";
+The syntax differs in one key place. The imported value, add, is not surrounded by curly braces ({}). add here is simply a variable name for whatever the default export of the math_functions.js file is. You can use any name here when importing a default.
+
+In the following code, import the default export from the math_functions.js file, found in the same directory as this file. Give the import the name subtract.
+*/
+import subtract from "./math_functions.js";  
+// Only change code above this line
+
+subtract(7,4);
+// __________________________________________________ Create a JavaScript Promise
+
+/*
+A promise in JavaScript is exactly what it sounds like - you use it to make a promise to do something, usually asynchronously. When the task completes, you either fulfill your promise or fail to do so. Promise is a constructor function, so you need to use the new keyword to create one. It takes a function, as its argument, with two parameters - resolve and reject. These are methods used to determine the outcome of the promise. The syntax looks like this:
+
+const myPromise = new Promise((resolve, reject) => {
+
+});
+Create a new promise called makeServerRequest. Pass in a function with resolve and reject parameters to the constructor.
+*/
+const makeServerRequest = new Promise((resolve, reject) => {})
+// __________________________________________________ Complete a Promise with resolve and reject
+
+/*
+A promise has three states: pending, fulfilled, and rejected. The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail. These are methods that take an argument, as seen below.
+
+const myPromise = new Promise((resolve, reject) => {
+  if(condition here) {
+    resolve("Promise was fulfilled");
+  } else {
+    reject("Promise was rejected");
+  }
+});
+The example above uses strings for the argument of these functions, but it can really be anything. Often, it might be an object, that you would use data from, to put on your website or elsewhere.
+
+Make the promise handle success and failure. If responseFromServer is true, call the resolve method to successfully complete the promise. Pass resolve a string with the value We got the data. If responseFromServer is false, use the reject method instead and pass it the string: Data not received.
+*/
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer represents a response from a server
+  let responseFromServer;
+    
+  if(responseFromServer) {
+     resolve('We got the data');
+  } else {  
+    reject('Data not received') 
+  }
+});
+// __________________________________________________ Handle a Fulfilled Promise with then
+
+/*
+Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
+
+myPromise.then(result => {
+  
+});
+result comes from the argument given to the resolve method.
+
+Add the then method to your promise. Use result as the parameter of its callback function and log result to the console.
+*/
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to true to represent a successful response from a server
+  
+  let responseFromServer = true;
+    
+  if(responseFromServer) {
+    resolve(result);
+  } else {  
+    reject("Data not received");
+  }
+});
+
+makeServerRequest.then(result => {console.log(result)});
+// __________________________________________________ Handle a Rejected Promise with catch
+
+/*
+catch is the method used when your promise has been rejected. It is executed immediately after a promise's reject method is called. Here’s the syntax:
+
+myPromise.catch(error => {
+  
+});
+error is the argument passed in to the reject method.
+
+Add the catch method to your promise. Use error as the parameter of its callback function and log error to the console.
+*/
+const makeServerRequest = new Promise((resolve, reject) => {
+  // responseFromServer is set to false to represent an unsuccessful response from a server
+  let responseFromServer = false;
+    
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
+
+makeServerRequest.then(result => {
+  console.log(result);
+});
+
+makeServerRequest.catch(error => {
+   console.log(error);
+});
+// __________________________________________________ Using the Test Method
+
+/*
+Regular expressions are used in programming languages to match parts of strings. You create patterns to help you do that matching.
+
+If you want to find the word the in the string The dog chased the cat, you could use the following regular expression: /the/. Notice that quote marks are not required within the regular expression.
+
+JavaScript has multiple ways to use regexes. One way to test a regex is using the .test() method. The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your pattern finds something or not.
+
+let testStr = "freeCodeCamp";
+let testRegex = /Code/;
+testRegex.test(testStr);
+The test method here returns true.
+
+Apply the regex myRegex on the string myString using the .test() method.
+*/
+let myString = "Hello, World!";
+let myRegex = /Hello/;
+let result = myRegex.test(myString); // Change this line
+
+// __________________________________________________ Match Literal Strings
+
+/*
+In the last challenge, you searched for the word Hello using the regular expression /Hello/. That regex searched for a literal match of the string Hello. Here's another example searching for a literal match of the string Kevin:
+
+let testStr = "Hello, my name is Kevin.";
+let testRegex = /Kevin/;
+testRegex.test(testStr);
+This test call will return true.
+
+Any other forms of Kevin will not match. For example, the regex /Kevin/ will not match kevin or KEVIN.
+
+let wrongRegex = /kevin/;
+wrongRegex.test(testStr);
+This test call will return false.
+
+A future challenge will show how to match those other forms as well.
+
+Complete the regex waldoRegex to find "Waldo" in the string waldoIsHiding with a literal match.
+*/
+let waldoIsHiding = "Somewhere Waldo is hiding in this text.";
+let waldoRegex = /Waldo/; // Change this line
+let result = waldoRegex.test(waldoIsHiding);
+// __________________________________________________ Match a Literal String with Different Possibilities
+
+/*
+Using regexes like /coding/, you can look for the pattern coding in another string.
+
+This is powerful to search single strings, but it's limited to only one pattern. You can search for multiple patterns using the alternation or OR operator: |.
+
+This operator matches patterns either before or after it. For example, if you wanted to match the strings yes or no, the regex you want is /yes|no/.
+
+You can also search for more than just two patterns. You can do this by adding more patterns with more OR operators separating them, like /yes|no|maybe/.
+
+Complete the regex petRegex to match the pets dog, cat, bird, or fish.
+*/
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird|fish/; // Change this line
+let result = petRegex.test(petString);
+// __________________________________________________ Ignore Case While Matching
+
+/*
+Up until now, you've looked at regexes to do literal matches of strings. But sometimes, you might want to also match case differences.
+
+Case (or sometimes letter case) is the difference between uppercase letters and lowercase letters. Examples of uppercase are A, B, and C. Examples of lowercase are a, b, and c.
+
+You can match both cases using what is called a flag. There are other flags but here you'll focus on the flag that ignores case - the i flag. You can use it by appending it to the regex. An example of using this flag is /ignorecase/i. This regex can match the strings ignorecase, igNoreCase, and IgnoreCase.
+
+Write a regex fccRegex to match freeCodeCamp, no matter its case. Your regex should not match any abbreviations or variations with spaces.
+*/
+let myString = "freeCodeCamp";
+let fccRegex = /Freecodecamp/i; // Change this line
+let result = fccRegex.test(myString);
+// __________________________________________________ How many stairs will Suzuki climb in 20 years?
+
+
+/*
+Suzuki is a monk who climbs a large staircase to the monastery as part of a ritual. Some days he climbs more stairs than others depending on the number of students he must train in the morning. He is curious how many stairs might be climbed over the next 20 years and has spent a year marking down his daily progress.
+
+The sum of all the stairs logged in a year will be used for estimating the number he might climb in 20.
+
+20_year_estimate = one_year_total * 20
+
+You will receive the following data structure representing the stairs Suzuki logged in a year. You will have all data for the entire year so regardless of how it is logged the problem should be simple to solve.
+
+stairs = [sunday,monday,tuesday,wednesday,thursday,friday,saturday]
+Make sure your solution takes into account all of the nesting within the stairs array.
+
+Each weekday in the stairs array is an array.
+
+sunday = [6737, 7244, 5776, 9826, 7057, 9247, 5842, 5484, 6543, 5153, 6832, 8274, 7148, 6152, 5940, 8040, 9174, 7555, 7682, 5252, 8793, 8837, 7320, 8478, 6063, 5751, 9716, 5085, 7315, 7859, 6628, 5425, 6331, 7097, 6249, 8381, 5936, 8496, 6934, 8347, 7036, 6421, 6510, 5821, 8602, 5312, 7836, 8032, 9871, 5990, 6309, 7825]
+Your function should return the 20 year estimate of the stairs climbed using the formula above.
+*/
+function stairsIn20(a){
+  return 20 * a.reduce((s,a) => s + a.reduce((s,n) => s + n, 0), 0)
+}
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
+
+// __________________________________________________ 
+
+/*
+
+*/
