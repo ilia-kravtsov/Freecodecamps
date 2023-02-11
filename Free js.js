@@ -3032,59 +3032,54 @@ Create a single regex that matches a range of letters between h and s, and a ran
 let quoteSample = "Blueberry 3.141592653s are delicious.";
 let myRegex = /[h-s2-6]/gi; // Change this line
 let result = quoteSample.match(myRegex); // Change this line
-// __________________________________________________ 
+// __________________________________________________ Match Single Characters Not Specified
 
-/*
+let quoteSample = "3 blind mice.";
+let myRegex = /[^aeiou0-9]/gi; // Change this line
+let result = quoteSample.match(myRegex); // Change this line
+// __________________________________________________ Match Characters that Occur One or More Times
 
-*/
+let difficultSpelling = "Mississippi";
+let myRegex = /s+/g; // Change this line
+let result = difficultSpelling.match(myRegex);
+// __________________________________________________ Match Characters that Occur Zero or More Times
+// Only change code below this line
+let chewieRegex = /Aa*/; // Change this line
+// Only change code above this line
 
-// __________________________________________________ 
+let result = chewieQuote.match(chewieRegex);
 
-/*
+// __________________________________________________ Find Characters with Lazy Matching
 
-*/
+let text = "<h1>Winter is coming</h1>";
+let myRegex = /<h.*?>/; // Change this line
+let result = text.match(myRegex);
 
-// __________________________________________________ 
+// __________________________________________________ Find One or More Criminals in a Hunt
 
-/*
+let reCriminals = /C+/; // Change this line
 
-*/
+// __________________________________________________ Match Beginning String Patterns
 
-// __________________________________________________ 
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+let result = calRegex.test(rickyAndCal);
 
-/*
+// __________________________________________________ Match Ending String Patterns
 
-*/
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/; // Change this line
+let result = lastRegex.test(caboose);
 
-// __________________________________________________ 
+// __________________________________________________ Match All Letters and Numbers
+let quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/gi; // Change this line
+let result = quoteSample.match(alphabetRegexV2).length;
 
-/*
-
-*/
-
-// __________________________________________________ 
-
-/*
-
-*/
-
-// __________________________________________________ 
-
-/*
-
-*/
-
-// __________________________________________________ 
-
-/*
-
-*/
 
 // __________________________________________________ 
 
-/*
 
-*/
 
 // __________________________________________________ 
 
