@@ -3101,56 +3101,88 @@ let username = "JackOfAllTrades";
 let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i; // Change this line
 let result = userCheck.test(username);
 
-// __________________________________________________ 
+// __________________________________________________ Match Whitespace
+let sample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g; // Change this line
+let result = sample.match(countWhiteSpace);
+
+// __________________________________________________ Match Non-Whitespace Characters
+
+let sample = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g; // Change this line
+let result = sample.match(countNonWhiteSpace);
+
+// __________________________________________________ Specify Upper and Lower Number of Matches
+
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6} no/; // Change this line
+let result = ohRegex.test(ohStr);
+
+// __________________________________________________ Specify Only the Lower Number of Matches
+
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/; // Change this line
+let result = haRegex.test(haStr);
+
+// __________________________________________________ Specify Exact Number of Matches
+
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/; // Change this line
+let result = timRegex.test(timStr);
+
+// __________________________________________________ Check for All or None
+
+let favWord = "favorite";
+let favRegex = /favou?rite/; // Change this line
+let result = favRegex.test(favWord);
+
+// __________________________________________________ Positive and Negative Lookahead
+
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{6})(?=\D*\d{2})/; // Change this line
+let result = pwRegex.test(sampleWord);
+
+// __________________________________________________ Check For Mixed Grouping of Characters
+
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Eleanor|Franklin D.)\sRoosevelt/i; // Change this line
+let result = myRegex.test(myString); // Change this line
+// After passing the challenge experiment with myString and see how the grouping works
+
+// __________________________________________________ Reuse Patterns Using Capture Groups
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/; // Change this line
+let result = reRegex.test(repeatNum);
+
+// __________________________________________________ Use Capture Groups to Search and Replace
+
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/; // Change this line
+let replaceText = "$3 $2 $1"; // Change this line
+let result = str.replace(fixRegex, replaceText);
+
+// __________________________________________________ Remove Whitespace from Start and End
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; // Change this line
+let result = hello.replace(wsRegex, ''); // Change this line
 
 
-// __________________________________________________ 
+// __________________________________________________ Use the JavaScript Console to Check the Value of a Variable
 
+let a = 5;
+let b = 1;
+a++;
+// Only change code below this line
+console.log(a)
 
+let sumAB = a + b;
+console.log(sumAB);
 
-// __________________________________________________ 
+// __________________________________________________ Understanding the Differences between the freeCodeCamp and Browser Console
 
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
-
-// __________________________________________________ 
-
-
+let output = "Get this to show once in the freeCodeCamp console and not at all in the browser console";
+console.log(output)
+console.clear()
 // __________________________________________________ 
 
 
