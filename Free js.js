@@ -3324,28 +3324,73 @@ function popShift(arr) {
 
 console.log(popShift(['challenge', 'is', 'not', 'complete']));
 
-// __________________________________________________ 
+// __________________________________________________ Remove Items Using splice()
 
+const arr = [2, 4, 5, 1, 7, 5, 2, 1];
+// Only change code below this line
+arr.splice(1,4)
+// Only change code above this line
+console.log(arr);
 
+// __________________________________________________ Add Items Using splice()
 
-// __________________________________________________ 
+function htmlColorNames(arr) {
+  // Only change code below this line
+arr.splice(0,2,'DarkSalmon','BlanchedAlmond')
+  // Only change code above this line
+  return arr;
+}
 
+console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurquoise', 'FireBrick']));
 
+// __________________________________________________ Copy Array Items Using slice()
 
-// __________________________________________________ 
+function forecast(arr) {
+  // Only change code below this line
+  return arr.slice(2,4);
+}
 
+// Only change code above this line
+console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
 
+// __________________________________________________ Copy an Array with the Spread Operator
 
-// __________________________________________________ 
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    // Only change code below this line
+newArr.push([...arr])
+    // Only change code above this line
+    num--;
+  }
+  return newArr;
+}
 
+console.log(copyMachine([true, false, true], 2));
 
+// __________________________________________________ Combine Arrays with the Spread Operator
 
-// __________________________________________________ 
+function spreadOut() {
+  let fragment = ['to', 'code'];
+  let sentence = ['learning', ...fragment, 'is', 'fun']
+  return sentence;
+}
 
+console.log(spreadOut());
 
+// __________________________________________________ Check For The Presence of an Element With indexOf()
+function quickCheck(arr, elem) {
+  // Only change code below this line
+if (arr.indexOf(elem) >= 0) {
+  return true
+}
+else {
+  return false
+}
+  // Only change code above this line
+}
 
-// __________________________________________________ 
-
+console.log(quickCheck(["onions", "squash", "shallots"], "onions"));
 
 
 // __________________________________________________ 
