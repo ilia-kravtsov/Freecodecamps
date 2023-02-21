@@ -3662,8 +3662,34 @@ function findLongestWordLength(str) {
   }
   
   findLongestWordLength("The quick brown fox jumped over the lazy dog");
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Return Largest Numbers in Arrays
+function largestOfFour(arr) {
+let result = []
+for (let i = 0; i < arr.length; i++) {
+
+    let max = arr[i][0]
+    for (let k = 0; k < arr.length; k++) {
+        if (arr[i][k] > max) {
+            max = arr[i][k]
+        }
+    }
+    result.push(max)
+}
+   return result;
+}
+
+largestOfFour([[17, 23, 25, 12], [25, 7, 34, 48], [4, -10, 18, 21], [-72, -3, -17, -10]]);
+// __________________________________________________ Confirm the Ending
+function confirmEnding(str, target) {
+  let some = target.length;
+  let match = str.slice(str.length - some, str.length);
+  if (match == target) {
+    return true
+  }
+  return false;
+}
+
+confirmEnding("Bastian", "n");
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
