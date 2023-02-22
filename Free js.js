@@ -3690,11 +3690,117 @@ function confirmEnding(str, target) {
 }
 
 confirmEnding("Bastian", "n");
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Repeat a String Repeat a String
+function repeatStringNumTimes(str, num) {
+
+  if (num <= 0) {
+    return str = ''
+  }
+
+  let rpt = '';
+    for (let i = 0; i < num; i++) {
+      rpt += str;
+    }
+  return rpt;
+
+}
+
+repeatStringNumTimes("abc", 3);
+// __________________________________________________ Truncate a String
+function truncateString(str, num) {
+  let arr = str.split('')
+ // console.log(arr)
+ console.log(arr.length)
+ let result = ''
+
+  if (arr.length <= num) {
+    return str
+  }
+
+  if (arr.length > num) {
+      for (let i = 0; i < num; i++) {
+          result += arr[i]
+      }
+  }
+  return `${result}...`
+
+  //return `${arr[0]}...`
+}
+
+truncateString("Peter Piper picked a peck of pickled peppers", 11);
+// __________________________________________________ Finders Keepers
+function findElement(arr, func) {
+
+  let num = 0;
+  let isTrue = false
+  let und = 0
+
+  for (let i = 0; i < arr.length; i++) {
+
+      if (!isTrue) {
+          if (func(arr[i])) {
+              num = arr[i]
+              isTrue = true
+          }
+      }
+  }
+
+  if (isTrue) {
+      return num
+  } else {
+      return undefined
+  }
+}
+
+findElement([1, 3, 5, 8, 9, 10], function(num) { return num % 2 === 0; })
+// __________________________________________________ Boo who
+function booWho(bool) {
+  if (bool === true || bool === false) {
+    return true
+  } else {
+    return false
+  }
+}
+
+booWho(null);
+// __________________________________________________ Title Case a Sentence
+function titleCase(str) {
+  let array = str.split(' ')
+  let firstLetter = ''
+  let elseLetters = ''
+  let resultArr = []
+  let result = []
+  let strResult = ''
+ 
+  for (let i = 0; i < array.length; i++) {
+
+      firstLetter = array[i][0].toUpperCase()
+      resultArr.push(firstLetter)
+      
+      for (let k = 1; k < array[i].length; k++) {
+          elseLetters = array[i][k].toLowerCase()
+          resultArr.push(elseLetters)
+      }
+      
+  }
+ 
+  for (let i = 0; i < resultArr.length; i++) {
+      if (resultArr[i] === "'") {
+          result.push(`${resultArr[i]}`)
+      } else if (resultArr[i] === resultArr[i].toUpperCase()) {
+          result.push(` ${resultArr[i]}`)
+      } else {
+          result.push(`${resultArr[i]}`)
+      }
+  }
+
+  strResult = result.join('').trim()
+
+  return strResult
+}
+
+titleCase("I'm a little tea pot");
+// I'm A Little Tea Pot
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
