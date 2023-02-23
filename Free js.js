@@ -3801,14 +3801,90 @@ function titleCase(str) {
 
 titleCase("I'm a little tea pot");
 // I'm A Little Tea Pot
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Slice and Splice
+function frankenSplice(arr1, arr2, n) {
+    let result = []
+
+    result.push(...arr2.slice(0,n))
+    result.push(...arr1)
+    result.push(...arr2.slice(n, arr2.length))
+
+    return result
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+// __________________________________________________ Falsy Bouncer
+function bouncer(arr) {
+  let result = []
+  for (let i = 0; i < arr.length; i++) {
+      if ( arr[i]) {
+        result.push(arr[i])
+      }
+  }
+  return result
+}
+
+bouncer([7, "ate", "", false, 9]);
+// __________________________________________________ Where do I Belong
+function getIndexToIns(arr, num) {
+  let sorted = arr.sort((a,b) => a - b)
+
+  for (let i = 0; i < sorted.length; i++) {
+    if( num <= sorted[i]) {
+      return i
+    }
+  }
+  return sorted.length
+}
+
+getIndexToIns([40, 60], 50);
+// __________________________________________________ Mutations
+function mutation(arr) {
+  let firstWord = arr[0].toLowerCase()
+  let secondWord = arr[1].toLowerCase()
+
+  for(let i = 0; i< secondWord.length; i++) {
+    if(firstWord.indexOf(secondWord[i]) === -1) {
+      return false
+    }
+  }
+  return true
+}
+
+mutation(["hello", "hey"])
+// __________________________________________________ Chunky Monkey
+function chunkArrayInGroups(arr, size) {
+  let result = []
+
+  for (let i = 0; i < arr.length; i+= size) {
+    result.push(arr.slice(i,i + size))
+  }
+
+  return result
+}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+// __________________________________________________ Create a Basic JavaScript Object
+let dog = {
+  name: 'sharik',
+  numLegs: 4
+};
+// __________________________________________________ Use Dot Notation to Access the Properties of an Object
+let dog = {
+  name: "Spot",
+  numLegs: 4
+};
+// Only change code below this line
+console.log(dog.name)
+console.log(dog.numLegs)
+// __________________________________________________ Create a Method on an Object
+let dog = {
+  name: "Spot",
+  numLegs: 4,
+  sayLegs: () => `This dog has ${dog.numLegs} legs.`
+};
+
+dog.sayLegs();
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
