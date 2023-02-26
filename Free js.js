@@ -3894,9 +3894,29 @@ let dog = {
 };
 
 dog.sayLegs();
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Define a Constructor Function
+function Dog() {
+  this.name = 'asdf'
+  this.color = 'asdf'
+  this.numLegs = 12
+} 
+// __________________________________________________ Use a Constructor to Create Objects
+function Dog() {
+  this.name = "Rupert";
+  this.color = "brown";
+  this.numLegs = 4;
+}
+// Only change code below this line
+let hound = new Dog()
+
+// __________________________________________________ Extend Constructors to Receive Arguments
+function Dog(name, color) {
+  this.numLegs = 4
+  this.name = name
+  this.color = color
+}
+
+let terrier = new Dog('sharik', 'black')
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
