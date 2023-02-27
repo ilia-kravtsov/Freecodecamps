@@ -3917,9 +3917,38 @@ function Dog(name, color) {
 }
 
 let terrier = new Dog('sharik', 'black')
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Verify an Object's Constructor with instanceof
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
+}
+
+// Only change code below this line
+let myHouse = new House(14)
+
+myHouse instanceof House
+// __________________________________________________ Understand Own Properties
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
+
+let canary = new Bird("Tweety");
+let ownProps = [];
+// Only change code below this line
+for (let property in canary) {
+  if(canary.hasOwnProperty(property)) {
+    ownProps.push(property);
+  }
+}
+// __________________________________________________ Use Prototype Properties to Reduce Duplicate Code
+function Dog(name) {
+  this.name = name;
+}
+
+
+Dog.prototype.numLegs = 4
+// Only change code above this line
+let beagle = new Dog("Snoopy");
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
