@@ -3949,9 +3949,54 @@ function Dog(name) {
 Dog.prototype.numLegs = 4
 // Only change code above this line
 let beagle = new Dog("Snoopy");
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Iterate Over All Properties
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+let beagle = new Dog("Snoopy");
+
+let ownProps = [];
+let prototypeProps = [];
+
+// Only change code below this line
+for (let property in beagle) {
+  if(beagle.hasOwnProperty(property)) {
+    ownProps.push(property);
+  } else {
+    prototypeProps.push(property);
+  }
+}
+// __________________________________________________ Understand the Constructor Property
+function Dog(name) {
+  this.name = name;
+}
+
+// Only change code below this line
+function joinDogFraternity(candidate) {
+ if (candidate.constructor === Dog) {
+    return true;
+  } else {
+    return false;
+  }
+}
+// __________________________________________________ Change the Prototype to a New Object
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype = {
+  // Only change code below this line
+  numLegs: 2, 
+  eat: function() {
+    console.log("nom nom nom");
+  },
+  describe: function() {
+    console.log("My name is " + this.name);
+  }
+};
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
