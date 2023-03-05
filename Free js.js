@@ -4901,9 +4901,51 @@ function sumAll(arr) {
 }
 
 sumAll([1, 4]);
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Diff Two Arrays
+function diffArray(arr1, arr2) {
+  const newArr = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.indexOf(arr1[i]) === -1) {
+      newArr.push(arr1[i])
+    }
+  }
+    for (let i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) === -1) {
+      newArr.push(arr2[i])
+    }
+  }
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+// __________________________________________________ Seek and Destroy
+function destroyer(arr) {
+  let args = Array.from(arguments)
+  let targets = args.splice(1)
+  let newArr = []
+
+  for (let el of arr) {
+    if (targets.indexOf(el) === -1) {
+      newArr.push(el)
+    }
+  }
+  return newArr;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+// __________________________________________________ Don't give me five!
+function dontGiveMeFive(start, end)
+{
+  let result = 0
+  for (let i = start; i <=end; i++) {
+    if(!/5/.test(i)) {
+      result++
+    }
+  }
+  return result;
+}
+
+const dontGiveMeFive=(s,e)=>[...Array(e-s+1)].reduce((r,_,n)=>r+!/5/.test(n+s),0)
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
