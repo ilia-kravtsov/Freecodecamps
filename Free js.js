@@ -4946,8 +4946,38 @@ function dontGiveMeFive(start, end)
 }
 
 const dontGiveMeFive=(s,e)=>[...Array(e-s+1)].reduce((r,_,n)=>r+!/5/.test(n+s),0)
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Wherefore art thou
+function whatIsInAName(collection, source) {
+   
+
+   return collection.filter((obj) => {
+     for (let key of Object.keys(source)) {
+       if (!obj.hasOwnProperty(key) || obj[key] !== source[key]) {
+         return false
+       }
+     } return true
+   })
+}
+
+Waiting:whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" })
+// __________________________________________________ Spinal Tap Case
+function spinalCase(str) {
+  let modified = ''
+  for (let i = 0, n = str.length; i < n; i++) {
+    if(str[i] === ' ' || str[i] === '_') {
+      modified += '-'
+    }
+    else if ((i !== 0) && (str[i-1] !== str[i-1].toUpperCase()) && 
+    (str[i] === str[i].toUpperCase()) && (str[i] !== '-')) {
+      modified += `-${str[i]}`
+    } else {
+      modified += str[i]
+    }
+  } 
+  return modified.toLowerCase()
+}
+
+spinalCase('This Is Spinal Tap');
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
