@@ -4978,8 +4978,38 @@ function spinalCase(str) {
 }
 
 spinalCase('This Is Spinal Tap');
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Pig Latin
+function translatePigLatin(str) {
+  if (str.match(/^[aeiou]/)) return str + "way";
+
+ const consonantCluster = str.match(/^[^aeiou]+/)[0];
+ return str.substring(consonantCluster.length) + consonantCluster + "ay";
+
+}
+
+translatePigLatin("consonant");
+// __________________________________________________ Search and Replace
+function myReplace(str, before, after) {
+
+  let symbolB = before[0];
+  let isUpperCaseB = symbolB.toUpperCase() === symbolB;
+  let symbolA = after[0]
+  let isUpperCaseA = symbolA.toUpperCase() === symbolA;
+  
+  if (isUpperCaseB) {
+    let firstAfter = after[0].toUpperCase() 
+    let removed = after.split('').slice(1).join('')
+    let concatenated = firstAfter + removed
+    return str.split(' ').map(word => word === before ? word = concatenated : word ).join(' ')
+  } else if (isUpperCaseA !== isUpperCaseB) {
+    return str.split(' ').map(word => word === before ? word = after.toLowerCase() : word ).join(' ')
+  } else {
+    return str.split(' ').map(word => word === before ? word = after : word ).join(' ')
+  }
+  
+  }
+  
+  myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
