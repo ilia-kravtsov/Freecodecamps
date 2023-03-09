@@ -5010,10 +5010,58 @@ function myReplace(str, before, after) {
   }
   
   myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ DNA Pairing
+function pairElement(str) {
+  let arr = str.split('')
+  return arr.map(i => i === 'G' ? ['G', 'C'] : i === 'C' ? ['C', 'G'] : i === 'A' ? ['A', 'T'] : i === 'T' ? ['T', 'A'] : [])
+}
+
+pairElement("CTCTA");
+// __________________________________________________ Missing letters
+function fearNotLetter(str) {
+  for (let i = 1; i < str.length; ++i) {
+  if (str.charCodeAt(i) - str.charCodeAt(i - 1) > 1) {
+    return String.fromCharCode(str.charCodeAt(i - 1) + 1);
+  }
+}
+}
+
+fearNotLetter("abce");
+// __________________________________________________ Sorted Union
+function uniteUnique(...arr) {
+  return [...new Set(arr.flat())];
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+// __________________________________________________ Convert HTML Entities
+function convertHTML(str) {
+
+  let temp = str.split("");
+
+for (let i = 0; i < temp.length; i++) {
+  switch (temp[i]) {
+    case "<":
+      temp[i] = "&lt;";
+      break;
+    case "&":
+      temp[i] = "&amp;";
+      break;
+    case ">":
+      temp[i] = "&gt;";
+      break;
+    case '"':
+      temp[i] = "&quot;";
+      break;
+    case "'":
+      temp[i] = "&apos;";
+      break;
+  }
+}
+
+return temp.join("");
+}
+
+convertHTML("Dolce & Gabbana");
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
