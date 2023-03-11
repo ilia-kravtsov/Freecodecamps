@@ -5062,21 +5062,282 @@ return temp.join("");
 }
 
 convertHTML("Dolce & Gabbana");
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
-// __________________________________________________ 
+// __________________________________________________ Sum All Odd Fibonacci Numbers
+function sumFibs(num) {
+  let prevNumber = 0;
+  let currNumber = 1;
+  let result = 0;
+  while (currNumber <= num) {
+    if (currNumber % 2 !== 0) {
+      result += currNumber;
+    }
+    currNumber += prevNumber;
+    prevNumber = currNumber - prevNumber;
+  }
+
+  return result;
+}
+
+sumFibs(4);
+// __________________________________________________ Sum All Primes
+function sumPrimes(num) {
+  // Check all numbers for primality
+  let primes = [];
+  for (let i = 2; i <= num; i++) {
+    if (primes.every((prime) => i % prime !== 0))
+      primes.push(i);
+  }
+  return primes.reduce((sum, prime) => sum + prime, 0);
+}
+
+sumPrimes(10);
+// __________________________________________________ Smallest Common Multiple
+function smallestCommons(arr) {
+ 
+  const [min, max] = arr.sort((a, b) => a - b);
+  const numberDivisors = max - min + 1;
+
+  let upperBound = 1;
+  for (let i = min; i <= max; i++) {
+    upperBound *= i;
+  }
+
+  for (let multiple = max; multiple <= upperBound; multiple += max) {
+ 
+    let divisorCount = 0;
+    for (let i = min; i <= max; i++) {
+
+      if (multiple % i === 0) {
+        divisorCount += 1;
+      }
+    }
+    if (divisorCount === numberDivisors) {
+      return multiple;
+    }
+  }
+}
+// __________________________________________________ Drop it
+function dropElements(arr, func) {
+  let sliceIndex = arr.findIndex(func);
+  return arr.slice(sliceIndex >= 0 ? sliceIndex : arr.length);
+}
+
+dropElements([1, 2, 3], function(n) {return n < 3; });
+// __________________________________________________ Steamroller
+function steamrollArray(arr) {
+
+  const flattenedArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flattenedArray.push(...steamrollArray(arr[i]));
+    } else {
+      flattenedArray.push(arr[i]);
+    }
+  }
+  return flattenedArray;
+};
+
+steamrollArray([1, [2], [3, [[4]]]]);
+// __________________________________________________ Binary Agents
+function binaryAgent(str) {
+  return String.fromCharCode(
+    ...str.split(" ").map(function(char) {
+      return parseInt(char, 2);
+    })
+  );
+}
+// __________________________________________________ Everything Be True
+function truthCheck(collection, pre) {
+  return collection.every(obj => obj[pre]);
+}
+
+truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+// __________________________________________________ Arguments Optional
+function addTogether() {
+  const [first, second] = arguments;
+  if (typeof(first) !== "number")
+    return undefined;
+  if (arguments.length === 1)
+    return (second) => addTogether(first, second);
+  if (typeof(second) !== "number")
+    return undefined;
+  return first + second;
+}
+
+addTogether(2,3);
+// __________________________________________________ Make a Person
+const Person = function(firstAndLast) {
+  let fullName = firstAndLast;
+
+  this.getFirstName = function() {
+    return fullName.split(" ")[0];
+  };
+
+  this.getLastName = function() {
+    return fullName.split(" ")[1];
+  };
+
+  this.getFullName = function() {
+    return fullName;
+  };
+
+  this.setFirstName = function(name) {
+    fullName = name + " " + fullName.split(" ")[1];
+  };
+
+  this.setLastName = function(name) {
+    fullName = fullName.split(" ")[0] + " " + name;
+  };
+
+  this.setFullName = function(name) {
+    fullName = name;
+  };
+};
+
+const bob = new Person('Bob Ross');
+bob.getFullName();
+// __________________________________________________ Map the Debris
+function orbitalPeriod(arr) {
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
+ 
+  const newArr = JSON.parse(JSON.stringify(arr));
+ 
+  newArr.forEach(function(item) {
+
+    const tmp = Math.round(
+      2 * Math.PI * Math.sqrt(Math.pow(earthRadius + item.avgAlt, 3) / GM)
+    );
+
+    delete item.avgAlt;
+
+    item.orbitalPeriod = tmp;
+  });
+
+  return newArr;
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+// __________________________________________________  Palindrome Checker
+function palindrome(str) {
+  const a = str
+      .toLowerCase()
+      .match(/[a-z0-9]/g);
+  return a.join('') ===
+      a.reverse().join('');
+}
+
+palindrome("eye");
+// __________________________________________________ Roman Numeral Converter
+function convertToRoman(num) {
+  var d = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+ var ro = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+
+ var r = "";
+
+ for (var index = 0; index < d.length; index++) {
+   while (d[index] <= num) {
+     r += ro[index];
+     num -= d[index];
+   }
+ }
+
+ return r;
+}
+
+convertToRoman(36);
+// __________________________________________________ Caesars Cipher
+function rot13(str) {
+  const a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  return str
+    .split('')
+    .map(char => {  
+      const pos = a.indexOf(char);      
+      return pos >= 0 ? a[(pos + 13) % 26] : char;
+    })
+    .join('');
+}
+rot13("SERR PBQR PNZC");
+// __________________________________________________ Telephone Number Validator
+function telephoneCheck(str) {
+  return /^(1\s|1)?(\(\d{3}\)|\d{3})(-|\s)?\d{3}(-|\s)?\d{4}$/.test(str);
+}
+
+telephoneCheck("555-555-5555");
+// __________________________________________________ Cash Register
+function checkCashRegister(price, cash, cid) {
+  const rate = [ 
+    ["PENNY", 0.01],
+    ["NICKEL", 0.05],
+    ["DIME", 0.1],
+    ["QUARTER", 0.25],
+    ["ONE", 1],
+    ["FIVE", 5],
+    ["TEN", 10],
+    ["TWENTY", 20],
+    ["ONE HUNDRED", 100],
+  ];
+  let changeArr = [];
+  let coin = []; 
+  let change = cash - price;
+  let total = cid.reduce((sum, category) => sum + category[1], 0).toFixed(2);
+  let sum = 0; 
+  let midArr = [];
+
+  for (let i = 0; i < Object.keys(rate).length; i++) {
+    coin.push(Math.round(cid[i][1] / rate[i][1]));
+  } 
+
+  rate.reverse(); 
+  coin.reverse();
+
+  for (let i = 0; i <= coin.length; i++) {
+    for (let j = 0; j < coin[i]; j++) {
+
+      if (change >= rate[i][1]) {
+
+        change -= rate[i][1];
+        change = change.toFixed(2); 
+        total -= rate[i][1];
+        total = total.toFixed(2); 
+        sum += rate[i][1];
+
+        if (sum > 0) {
+
+          midArr = [rate[i][0], Number(sum.toFixed(2))];
+          changeArr.push(midArr);
+          midArr = [];
+        }
+
+        if (change == 0 && total > 0) {
+          for (let i = 0; i < changeArr.length; i++) {
+            if (!changeArr[i + 1]) {
+              break;
+            } else if (changeArr[i + 1][0] == changeArr[i][0]) {
+              changeArr[i][1] = changeArr[i + 1][1];
+              delete changeArr[i];
+            }
+          }
+
+          changeArr = changeArr.filter(function (el) {
+            return el != null;
+          });
+          return { status: "OPEN", change: changeArr };
+        } else if (change == 0 && total == 0) {
+          return { status: "CLOSED", change: cid };
+        }
+      }
+    }
+    sum = 0;
+  }
+
+  if (change > 0) {
+    return { status: "INSUFFICIENT_FUNDS", change: [] };
+  }
+
+}
+
+checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
 // __________________________________________________ 
 // __________________________________________________ 
 // __________________________________________________ 
