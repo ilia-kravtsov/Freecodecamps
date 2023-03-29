@@ -5748,11 +5748,72 @@ ______________________________________________Use tabindex to Specify the Order 
     height: 100%;
   }
 </style>
-______________________________________________
-______________________________________________
-______________________________________________
-______________________________________________
-______________________________________________
+______________________________________________Create a Media Query
+<style>
+  p {
+    font-size: 20px;
+  }
+
+  /* Only change code below this line */
+@media (max-height: 800px) { p {font-size: 10px;} }
+  /* Only change code above this line */
+</style>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis tempus massa. Aenean erat nisl, gravida vel vestibulum cursus, interdum sit amet lectus. Sed sit amet quam nibh. Suspendisse quis tincidunt nulla. In hac habitasse platea dictumst. Ut sit amet pretium nisl. Vivamus vel mi sem. Aenean sit amet consectetur sem. Suspendisse pretium, purus et gravida consequat, nunc ligula ultricies diam, at aliquet velit libero a dui.</p>
+______________________________________________Make an Image Responsive
+<style>
+  .responsive-img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  img {
+    width: 500px;
+  }
+  </style>
+  
+  <img class="responsive-img" src="https://s3.amazonaws.com/freecodecamp/FCCStickerPack.jpg" alt="freeCodeCamp stickers set">
+  <img src="https://s3.amazonaws.com/freecodecamp/FCCStickerPack.jpg" alt="freeCodeCamp stickers set">
+______________________________________________Use a Retina Image for Higher Resolution Displays
+<style>
+  img {
+    height: 100px;
+    width: 100px;
+  }
+</style>
+
+<img src="https://s3.amazonaws.com/freecodecamp/FCCStickers-CamperBot200x200.jpg" alt="freeCodeCamp sticker that says 'Because CamperBot Cares'">
+______________________________________________Make Typography Responsive
+<style>
+  h2 { width: 80vw; }
+  p { width: 75vmin;}
+</style>
+
+<h2>Importantus Ipsum</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis tempus massa. Aenean erat nisl, gravida vel vestibulum cursus, interdum sit amet lectus. Sed sit amet quam nibh. Suspendisse quis tincidunt nulla. In hac habitasse platea dictumst. Ut sit amet pretium nisl. Vivamus vel mi sem. Aenean sit amet consectetur sem. Suspendisse pretium, purus et gravida consequat, nunc ligula ultricies diam, at aliquet velit libero a dui.</p>
+______________________________________________Use display: flex to Position Two Boxes
+<style>
+  #box-container {
+    height: 500px;
+    display: flex;
+  }
+
+  #box-1 {
+    background-color: dodgerblue;
+    width: 50%;
+    height: 50%;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    width: 50%;
+    height: 50%;
+  }
+</style>
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
 ______________________________________________
 ______________________________________________
 ______________________________________________
