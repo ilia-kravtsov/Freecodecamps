@@ -6465,9 +6465,102 @@ ______________________________________________Use the flex-grow Property to Expa
   <div id="box-2"></div>
 </div>
 ______________________________________________Use the flex-basis Property to Set the Initial Size of an Item
-______________________________________________
-______________________________________________
-______________________________________________
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+
+  #box-1 {
+    background-color: dodgerblue;
+    height: 200px;
+    flex-basis: 10em;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    height: 200px;
+        flex-basis: 20em;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+______________________________________________Use the flex Shorthand Property
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    flex: 2 2 150px; 
+    height: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    flex: 1 1 150px; 
+    height: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+______________________________________________Use the order Property to Rearrange Items
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    order: 2;
+    height: 200px;
+    width: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    order: 1;
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
+______________________________________________Use the align-self Property
+<style>
+  #box-container {
+    display: flex;
+    height: 500px;
+  }
+  #box-1 {
+    background-color: dodgerblue;
+    align-self: center;
+    height: 200px;
+    width: 200px;
+  }
+
+  #box-2 {
+    background-color: orangered;
+    align-self: flex-end;
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div id="box-container">
+  <div id="box-1"></div>
+  <div id="box-2"></div>
+</div>
 ______________________________________________
 ______________________________________________
 ______________________________________________
