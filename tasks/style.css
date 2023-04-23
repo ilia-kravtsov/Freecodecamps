@@ -11,6 +11,13 @@ body {
     align-items: center;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -40,29 +47,29 @@ main {
 }
 
 #img-div {
-    width: 96%;
+    background-color: white;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background-color: white;
-    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    width: 98%;
 }
 
 #image {
     display: block;
     max-width: 100%;
     height: auto;
-    margin: 0 auto;
-}
-
-img {
-    display: block;
+    margin: auto;
 }
 
 #img-caption {
-    margin: 10px 0;
+    text-align: center;
+    margin-top: 0;
 }
+
 
 #tribute-info {
     width: 100%;
